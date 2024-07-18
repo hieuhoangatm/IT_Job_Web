@@ -1,7 +1,7 @@
 package com.dinhhieu.jobitweb.controller;
 
 import com.dinhhieu.jobitweb.domain.Company;
-import com.dinhhieu.jobitweb.domain.DTO.ResultPaginationDTO;
+import com.dinhhieu.jobitweb.domain.response.ResultPaginationDTO;
 import com.dinhhieu.jobitweb.service.CompanyService;
 import com.turkraft.springfilter.boot.Filter;
 import jakarta.validation.Valid;

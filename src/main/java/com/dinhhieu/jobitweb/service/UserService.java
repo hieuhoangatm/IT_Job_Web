@@ -1,7 +1,10 @@
 package com.dinhhieu.jobitweb.service;
 
-import com.dinhhieu.jobitweb.domain.DTO.*;
 import com.dinhhieu.jobitweb.domain.User;
+import com.dinhhieu.jobitweb.domain.response.ResCreateUserDTO;
+import com.dinhhieu.jobitweb.domain.response.ResUpdateUserDTO;
+import com.dinhhieu.jobitweb.domain.response.ResUserDTO;
+import com.dinhhieu.jobitweb.domain.response.ResultPaginationDTO;
 import com.dinhhieu.jobitweb.repository.UserRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

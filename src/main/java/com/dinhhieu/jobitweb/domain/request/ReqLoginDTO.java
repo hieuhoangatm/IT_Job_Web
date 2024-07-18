@@ -1,4 +1,4 @@
-package com.dinhhieu.jobitweb.domain.DTO;
+package com.dinhhieu.jobitweb.domain.request;
 
 import lombok.Builder;
 import lombok.Data;

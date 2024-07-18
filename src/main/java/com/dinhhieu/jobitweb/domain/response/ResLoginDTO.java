@@ -1,4 +1,4 @@
-package com.dinhhieu.jobitweb.domain.DTO;
+package com.dinhhieu.jobitweb.domain.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.dinhhieu.jobitweb.domain.DTO;
+package com.dinhhieu.jobitweb.domain.response;
 
 import com.dinhhieu.jobitweb.util.Enum.GenderEnum;
 import com.dinhhieu.jobitweb.util.SecurityUtil;

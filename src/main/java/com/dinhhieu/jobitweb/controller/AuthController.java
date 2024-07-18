@@ -1,7 +1,7 @@
 package com.dinhhieu.jobitweb.controller;
 
-import com.dinhhieu.jobitweb.domain.DTO.ReqLoginDTO;
-import com.dinhhieu.jobitweb.domain.DTO.ResLoginDTO;
+import com.dinhhieu.jobitweb.domain.request.ReqLoginDTO;
+import com.dinhhieu.jobitweb.domain.response.ResLoginDTO;
 import com.dinhhieu.jobitweb.domain.User;
 import com.dinhhieu.jobitweb.service.UserService;
 import com.dinhhieu.jobitweb.util.SecurityUtil;

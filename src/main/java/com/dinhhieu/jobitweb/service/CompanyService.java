@@ -1,7 +1,7 @@
 package com.dinhhieu.jobitweb.service;
 
 import com.dinhhieu.jobitweb.domain.Company;
-import com.dinhhieu.jobitweb.domain.DTO.ResultPaginationDTO;
+import com.dinhhieu.jobitweb.domain.response.ResultPaginationDTO;
 import com.dinhhieu.jobitweb.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

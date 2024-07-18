@@ -1,9 +1,9 @@
 package com.dinhhieu.jobitweb.controller;
 
-import com.dinhhieu.jobitweb.domain.DTO.ResCreateUserDTO;
-import com.dinhhieu.jobitweb.domain.DTO.ResUpdateUserDTO;
-import com.dinhhieu.jobitweb.domain.DTO.ResUserDTO;
-import com.dinhhieu.jobitweb.domain.DTO.ResultPaginationDTO;
+import com.dinhhieu.jobitweb.domain.response.ResCreateUserDTO;
+import com.dinhhieu.jobitweb.domain.response.ResUpdateUserDTO;
+import com.dinhhieu.jobitweb.domain.response.ResUserDTO;
+import com.dinhhieu.jobitweb.domain.response.ResultPaginationDTO;
 import com.dinhhieu.jobitweb.domain.User;
 import com.dinhhieu.jobitweb.service.UserService;
 import com.dinhhieu.jobitweb.util.error.IdInvalidException;
