@@ -1,9 +1,7 @@
 package com.dinhhieu.jobitweb.service;
 
 import com.dinhhieu.jobitweb.domain.Company;
-import com.dinhhieu.jobitweb.domain.DTO.Meta;
 import com.dinhhieu.jobitweb.domain.DTO.ResultPaginationDTO;
-import com.dinhhieu.jobitweb.domain.User;
 import com.dinhhieu.jobitweb.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -11,7 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,7 +23,7 @@ public class CompanyService {
     public ResultPaginationDTO getAllCompany(Specification<Company> spec, Pageable pageable){
         Page<Company> companyPage = this.companyRepository.findAll(spec, pageable);
         ResultPaginationDTO rs = new ResultPaginationDTO();
-        Meta mt = new Meta();
+        ResultPaginationDTO.Meta mt = new ResultPaginationDTO.Meta();
         mt.setPage(pageable.getPageNumber()+1);
         mt.setPageSize(pageable.getPageSize());
 
