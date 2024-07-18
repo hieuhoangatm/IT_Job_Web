@@ -1,5 +1,6 @@
-package com.dinhhieu.jobitweb.service;
+package com.dinhhieu.jobitweb.config;
 
+import com.dinhhieu.jobitweb.service.UserService;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.User;

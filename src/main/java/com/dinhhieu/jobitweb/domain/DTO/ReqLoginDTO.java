@@ -5,7 +5,7 @@ import lombok.Data;
 import jakarta.validation.constraints.NotBlank;
 @Data
 @Builder
-public class LoginDTO {
+public class ReqLoginDTO {
 
     @NotBlank(message = "username không được để trống")
     private String username;

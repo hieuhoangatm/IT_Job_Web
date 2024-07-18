@@ -1,6 +1,6 @@
 package com.dinhhieu.jobitweb.controller;
 
-import com.dinhhieu.jobitweb.domain.DTO.LoginDTO;
+import com.dinhhieu.jobitweb.domain.DTO.ReqLoginDTO;
 import com.dinhhieu.jobitweb.domain.DTO.ResLoginDTO;
 import com.dinhhieu.jobitweb.domain.User;
 import com.dinhhieu.jobitweb.service.UserService;
@@ -40,7 +40,7 @@ public class AuthController {
     }
 
     @PostMapping("/auth/login")
-    public ResponseEntity<ResLoginDTO> login(@Valid @RequestBody LoginDTO loginDto) {
+    public ResponseEntity<ResLoginDTO> login(@Valid @RequestBody ReqLoginDTO loginDto) {
         // Nạp input gồm username/password vào Security
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
                 loginDto.getUsername(), loginDto.getPassword());
