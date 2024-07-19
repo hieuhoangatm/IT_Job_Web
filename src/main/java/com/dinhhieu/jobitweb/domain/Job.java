@@ -4,6 +4,7 @@ import com.dinhhieu.jobitweb.util.Enum.LevelEnum;
 import com.dinhhieu.jobitweb.util.SecurityUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,7 +37,7 @@ public class Job {
 
     private Instant endDate;
 
-    private boolean isActive;
+    private boolean active;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss a", timezone = "GMT+7")
     private Instant createdAt;
@@ -53,7 +54,7 @@ public class Job {
     private Company company;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonIgnoreProperties(value = {"jobs"})
     @JoinTable(
             name = "job_skill",
             joinColumns = @JoinColumn(name = "job_id"),
