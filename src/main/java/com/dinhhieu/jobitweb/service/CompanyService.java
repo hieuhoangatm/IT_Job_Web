@@ -1,21 +1,25 @@
 package com.dinhhieu.jobitweb.service;
 
 import com.dinhhieu.jobitweb.domain.Company;
+import com.dinhhieu.jobitweb.domain.User;
 import com.dinhhieu.jobitweb.domain.response.ResultPaginationDTO;
 import com.dinhhieu.jobitweb.repository.CompanyRepository;
+import com.dinhhieu.jobitweb.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class CompanyService {
     private final CompanyRepository companyRepository;
-
+    private final UserRepository userRepository;
     public Company handleCreateCompany(Company company){
         return companyRepository.save(company);
     }
@@ -52,6 +56,18 @@ public class CompanyService {
     }
 
     public void deleteCompany(long id){
+        Optional<Company> companyOptional = this.companyRepository.findById(id);
+        if(companyOptional.isPresent()){
+            Company company = companyOptional.get();
+
+            List<User> users = this.userRepository.findByCompany(company);
+            this.userRepository.deleteAll(users);
+
+        }
         this.companyRepository.deleteById(id);
+    }
+
+    public Optional<Company> findById(long id){
+        return  this.companyRepository.findById(id);
     }
 }

@@ -2,12 +2,14 @@ package com.dinhhieu.jobitweb.domain;
 
 import com.dinhhieu.jobitweb.util.SecurityUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.Instant;
+import java.util.List;
 
 @Table(name = "companies")
 @Getter
@@ -37,6 +39,14 @@ public class Company {
     private String createdBy;
 
     private String updatedBy;
+
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<User> users;
+
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Job> jobs;
 
     @PrePersist
     public void handleBeforeCreate() {

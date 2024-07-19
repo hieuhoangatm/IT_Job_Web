@@ -1,45 +1,42 @@
 package com.dinhhieu.jobitweb.domain;
 
-import com.dinhhieu.jobitweb.util.Enum.GenderEnum;
+import com.dinhhieu.jobitweb.util.Enum.LevelEnum;
 import com.dinhhieu.jobitweb.util.SecurityUtil;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.Instant;
+import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Table(name = "users")
-public class User {
+@Table(name = "jobs" )
+public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank(message = "name must be not empty")
     private String name;
+    private String location;
+    private double salary;
+    private int quantity;
 
-    @NotBlank(message = "email must be not empty")
-    private String email;
-
-    @NotBlank(message = "password must be not empty")
-    private String password;
-
-    private int age;
-    private String address;
-
-    @Enumerated(EnumType.STRING)
-    private GenderEnum gender;
+    private LevelEnum level;
 
     @Column(columnDefinition = "MEDIUMTEXT")
-    private String refreshToken;
+    private String description;
+
+    private Instant startDate;
+
+    private Instant endDate;
+
+    private boolean isActive;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss a", timezone = "GMT+7")
     private Instant createdAt;
@@ -54,6 +51,16 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @JoinTable(
+            name = "job_skill",
+            joinColumns = @JoinColumn(name = "job_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id")
+    )
+    private List<Skill> skills;
+
 
     @PrePersist
     public void handleBeforeCreate() {
